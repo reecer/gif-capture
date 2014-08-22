@@ -12,6 +12,9 @@ Currently, it is easiest to clone this repo and symlink `gif-capture.py`
 ###Symlinking
 ```ln -s `pwd`/gif-capture.py ~/bin/gif-cap```
 
+
 Config
-=======
-By default, the gif is a 10 second lapse. This `DURATION` can be changed by editing the variable on `line 10`
+========
+* `ESC` will **quit**.
+* **Saves** to `~/Pictures`
+* By default, the gif is a 10 second lapse. This `DURATION` can be changed by editing the variable on *line 10*.
