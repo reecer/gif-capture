@@ -1,9 +1,13 @@
 #!/usr/bin/env python
+
 import cairo
 import gtk
 import subprocess
 import time
 import os
+
+# Gif length (SECS)
+DURATION = 10
 
 class Point:
 	def __init__(self, x=0, y=0):
@@ -32,7 +36,6 @@ class MyWin (gtk.Window):
 		self.set_has_frame(False)
 		self.set_app_paintable(True)
 
-		self.dur = 5 # Gif length (SECS)
 		self.image = None # Preview
 		self.start_h = None # Start-on-enter handle_id
 		self.cr = None # cairo context
@@ -88,7 +91,7 @@ class MyWin (gtk.Window):
 		fpath = os.path.expanduser('~/Pictures')
 		fpath += "/Gif from %d-%d-%d %d:%d:%d.gif" % (t.tm_year, t.tm_mon, t.tm_mday, t.tm_hour, t.tm_min, t.tm_sec)
 		# Start process
-		settings = '--duration=%d ' % self.dur + '--x=%d --y=%d --width=%d --height=%d ' % self.rect.args()
+		settings = '--duration=%d ' % DURATION + '--x=%d --y=%d --width=%d --height=%d ' % self.rect.args()
 		settings += fpath.replace(' ', '\ ')
 		print settings
 		subprocess.call('byzanz-record %s' % settings, shell=True)
