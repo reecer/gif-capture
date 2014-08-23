@@ -119,8 +119,9 @@ class MyWin (gtk.Window):
 	def mouse_press(self, widget, event):   
 		self.mouse_down = True
 		self.start.update(event.get_coords())
-		if self.image: self.image.destroy()
-		self.image = None
+		if self.image: 
+			self.image.destroy()
+			self.image = None
 
 	def mouse_move(self, widget, event):
 		if self.mouse_down:
