@@ -11,8 +11,7 @@ DURATION = 10
 
 class Point:
 	def __init__(self, x=0, y=0):
-		self.x = x
-		self.y = y
+		self.update([x, y])
 	def update(self, coords):
 		self.x = coords[0]
 		self.y = coords[1]
@@ -21,10 +20,10 @@ class Point:
 
 class Rect:
 	def __init__(self, start, end):
-		self.x = start.x
-		self.y = start.y
-		self.w = end.x - start.x
-		self.h = end.y - start.y
+		self.x = min(start.x, end.x)
+		self.y = min(start.y, end.y)
+		self.w = abs(end.x - start.x)
+		self.h = abs(end.y - start.y)
 	def args(self):
 		return ( self.x, self.y, self.w, self.h )
 
@@ -90,6 +89,7 @@ class MyWin (gtk.Window):
 		t = time.localtime()
 		fpath = os.path.expanduser('~/Pictures')
 		fpath += "/Gif from %d-%d-%d %d:%d:%d.gif" % (t.tm_year, t.tm_mon, t.tm_mday, t.tm_hour, t.tm_min, t.tm_sec)
+
 		# Start process
 		settings = '--duration=%d ' % DURATION + '--x=%d --y=%d --width=%d --height=%d ' % self.rect.args()
 		settings += fpath.replace(' ', '\ ')
@@ -102,7 +102,8 @@ class MyWin (gtk.Window):
 		self.rect = None
 
 		# Check out what we made
-		self.show_preview(fpath)
+		if os.path.isfile(fpath):
+			self.show_preview(fpath)
 
 	def show_preview(self, f):
 		'''Display last created GIF'''
