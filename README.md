@@ -11,7 +11,7 @@ Currently, it is easiest to clone this repo and symlink `gif-capture.py`
 ###Cloning
 ```git clone http://github.com/reecer/gif-capture```
 ###Symlinking
-```ln -s `pwd`/gif-capture.py ~/bin/gif-cap```
+```ln `pwd`/gif-capture.py ~/bin/gif-cap```
 
 
 Config
