@@ -3,6 +3,10 @@ gif-capture
 
 Byzanz interface to easily capture animated GIFs of your screen.
 
+
+![Alt text](images/start.png)
+![Alt text](images/outline.png)
+
 Installation
 ============
 Currently, it is easiest to clone this repo and symlink `gif-capture.py`
