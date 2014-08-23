@@ -1,3 +1,17 @@
+
+.my-pic{
+  height: 360px;
+
+  background-image: url('../images/start.png');
+  background-size: contain;
+}
+
+.my-pic:hover{
+  background-image: url('../images/outline.png');
+}
+
+
+
 /*******************************************************************************
 Slate Theme for GitHub Pages
 by Jason Costello, @jsncostello
